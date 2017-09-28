@@ -1,0 +1,27 @@
+def pomLocation = "email-service-parent"
+def targetLocation = "email-service-parent/email-service/target"
+
+node {
+
+    stage('Checkout') {
+        checkout scm
+    }
+
+    stage('Build') {
+
+        try {
+            sh "mvn -B -V -U -e -f " + pomLocation + "/pom.xml clean install"
+        } finally {
+            junit targetLocation + '/surefire-reports/*.xml'
+
+            publishHTML(target: [
+                    allowMissing         : true,
+                    alwaysLinkToLastBuild: false,
+                    keepAll              : true,
+                    reportDir            : targetLocation + '/pit-reports',
+                    reportFiles          : 'index.html',
+                    reportName           : "email-service pit report"
+            ])
+        }
+    }
+}
