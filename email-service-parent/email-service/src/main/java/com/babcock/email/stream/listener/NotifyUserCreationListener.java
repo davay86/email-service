@@ -16,6 +16,6 @@ public class NotifyUserCreationListener {
 
     @StreamListener(MessageChannels.NOTIFY_USER_CREATION_CHANNEL)
     public void notifyUserCreationReceiver(UserPayload userPayload) {
-        logger.info("Received On Notification Channel : "+ userPayload);
+        logger.info("UserPayload Received : "+ userPayload);
     }
 }

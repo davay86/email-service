@@ -20,7 +20,7 @@ public class NotifyUserCreationListenerTest {
     private MessageChannels messageChannels;
 
     @Test
-    public void consumerChannelOne_sendsMessage_asExpected() {
+    public void notifyUserCreationReceiver_receives_userPayload_asExpected() {
         messageChannels.notifyUserCreationChannel().send(createMessage(getExamplePayload()));
     }
 
