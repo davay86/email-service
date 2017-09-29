@@ -1,7 +1,6 @@
 package com.babcock.email.service;
 
 import com.babcock.email.stream.payload.User;
-import com.babcock.email.stream.payload.UserPayload;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,12 +26,8 @@ public class EmailService {
 
     private static Logger logger = LoggerFactory.getLogger(EmailService.class);
 
-    public void sendUserCreationEmail(UserPayload userPayload) {
-
-        for(User user : userPayload.getUsers()) {
-            sendMessageToUserAdmin(user);
-        }
-
+    public void sendUserCreationEmail(User userPayload) {
+            sendMessageToUserAdmin(userPayload);
     }
 
     private void sendMessageToUserAdmin(User user) {

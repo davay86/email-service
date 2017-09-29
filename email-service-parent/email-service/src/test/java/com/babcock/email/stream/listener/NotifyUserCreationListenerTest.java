@@ -65,7 +65,7 @@ public class NotifyUserCreationListenerTest {
     }
 
     public String getExamplePayload() {
-        return "{\"users\" : [{\"username\": \"joebloggs\",\"firstname\": \"joe\",\"lastname\": \"blogs\"}]}";
+        return "{\"username\": \"joebloggs\",\"firstname\": \"joe\",\"lastname\": \"blogs\"}";
     }
 
     private Message<String> createMessage(String payload) {

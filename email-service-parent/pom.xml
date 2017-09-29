@@ -15,6 +15,7 @@
 
 	<modules>
 		<module>email-service</module>
+		<module>email-service-test</module>
     	</modules>
 
 	<properties>

@@ -1,7 +1,6 @@
 package com.babcock.email.service;
 
 import com.babcock.email.stream.payload.User;
-import com.babcock.email.stream.payload.UserPayload;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -63,16 +62,13 @@ public class EmailServiceTest {
         assertEquals("User joebloggs(joe blogs) has been created and is awaiting activation", body.replaceAll("\r\n", ""));
     }
 
-    public UserPayload getExamplePayload() {
+    public User getExamplePayload() {
         User user = new User();
         user.setUsername("joebloggs");
         user.setFirstname("joe");
         user.setLastname("blogs");
 
-        UserPayload userPayload = new UserPayload();
-        userPayload.setUsers(Arrays.asList(user));
-
-        return userPayload;
+        return user;
     }
 
 

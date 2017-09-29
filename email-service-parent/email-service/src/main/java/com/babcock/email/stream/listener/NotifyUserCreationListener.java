@@ -2,7 +2,7 @@ package com.babcock.email.stream.listener;
 
 import com.babcock.email.service.EmailService;
 import com.babcock.email.stream.channel.MessageChannels;
-import com.babcock.email.stream.payload.UserPayload;
+import com.babcock.email.stream.payload.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +20,7 @@ public class NotifyUserCreationListener {
     EmailService emailService;
 
     @StreamListener(MessageChannels.NOTIFY_USER_CREATION_CHANNEL)
-    public void notifyUserCreationReceiver(UserPayload userPayload) {
+    public void notifyUserCreationReceiver(User userPayload) {
         logger.info("UserPayload Received : "+ userPayload);
         emailService.sendUserCreationEmail(userPayload);
     }

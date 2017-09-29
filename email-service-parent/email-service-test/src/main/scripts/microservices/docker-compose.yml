@@ -1,0 +1,25 @@
+###############################################################
+### Default Configuration for development environment       ###
+### This file with be used on local dev and CI environments ###
+###############################################################
+version: '2'
+
+services:
+
+  email-service:
+      image: sleepingtalent/email-service:snapshot
+      environment:
+      - SERVER_PORT=2222
+      - SPRING_PROFILES_ACTIVE=test
+      ports:
+      - "2222:2222"
+      command: ["dockerize", "-wait", "http://config-api:1111/config-api/email-service/test", "-timeout", "380s", "--", "/bin/sh", "-c", "java -jar app.jar --server.port=2222 --spring.profiles.active=test --spring.cloud.config.uri=http://config-api:1111/config-api/"]
+      volumes:
+       - /home/developer/docker-logs/:/app/log
+      expose:
+       - "2222"
+
+networks:
+  default:
+    external:
+      name: infrastructure_microservices

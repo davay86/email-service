@@ -1,16 +1,16 @@
 info:
   app:
-    name: security-admin-api
-    description: Security Admin Api
+    name: email-service
+    description: email-service
     version: @project.version@
 
 server:
   port: 2222
-  context-path: /security-admin-api
+  context-path: /email-service
 
 spring:
   application:
-    name: security-admin-api
+    name: email-service
   profiles:
     active: local
 
