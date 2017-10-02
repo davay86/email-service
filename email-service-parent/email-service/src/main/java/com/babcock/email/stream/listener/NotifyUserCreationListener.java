@@ -17,13 +17,13 @@ public class NotifyUserCreationListener {
 
     private static Logger logger = LoggerFactory.getLogger(NotifyUserCreationListener.class);
 
+    @Autowired
+    EmailService emailService;
+
     @HystrixCommand
     @StreamListener(MessageChannels.NOTIFY_USER_CREATION_CHANNEL)
     public void notifyUserCreationReceiver(User userPayload) {
         logger.info("UserPayload Received : "+ userPayload);
         emailService.sendUserCreationEmail(userPayload);
     }
-
-    @Autowired
-    EmailService emailService;
 }
