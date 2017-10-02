@@ -1,11 +1,9 @@
-package com.babcock.test.helper.stream;
+package com.babcock.integration.stream;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cloud.stream.annotation.Output;
 import org.springframework.integration.support.MessageBuilder;
-import org.springframework.messaging.MessageChannel;
 import org.springframework.stereotype.Component;
 
 @Component

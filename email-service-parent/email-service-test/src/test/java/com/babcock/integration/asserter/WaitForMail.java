@@ -1,14 +1,14 @@
-package com.babcock.test.helper.asserter;
+package com.babcock.integration.asserter;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
-public class WaitForService extends WaitUntilAsserter {
+public class WaitForMail extends WaitUntilAsserter {
 
     private String url;
     private RestTemplate restTemplate;
 
-    public WaitForService(String url, RestTemplate restTemplate) {
+    public WaitForMail(String url, RestTemplate restTemplate) {
         super();
         this.url = url;
         this.restTemplate = restTemplate;
@@ -19,7 +19,7 @@ public class WaitForService extends WaitUntilAsserter {
         try {
             ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
 
-            if(response.getStatusCode().is2xxSuccessful()) {
+            if(!response.getBody().isEmpty() && !response.getBody().equals("[]")) {
                 return true;
             }else {
                 System.out.print(".");
@@ -34,11 +34,11 @@ public class WaitForService extends WaitUntilAsserter {
 
     @Override
     protected String getTaskName() {
-        return "WaitForService";
+        return "WaitForMail";
     }
 
     @Override
     protected String getFailureMessage() {
-        return url+" not available";
+        return "no messages available at : "+url;
     }
 }

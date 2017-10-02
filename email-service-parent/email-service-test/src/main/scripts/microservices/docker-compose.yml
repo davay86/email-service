@@ -6,6 +6,15 @@ version: '2'
 
 services:
 
+  test-smtp-server:
+        image: mailhog/mailhog
+        ports:
+          - "1025:1025"
+          - "8025:8025"
+        expose:
+          - "1025"
+          - "8025"
+
   email-service:
       image: sleepingtalent/email-service:snapshot
       environment:
@@ -13,6 +22,8 @@ services:
       - SPRING_PROFILES_ACTIVE=test
       ports:
       - "2222:2222"
+      depends_on:
+      - test-smtp-server
       command: ["dockerize", "-wait", "http://config-api:1111/config-api/email-service/test", "-timeout", "380s", "--", "/bin/sh", "-c", "java -jar app.jar --server.port=2222 --spring.profiles.active=test --spring.cloud.config.uri=http://config-api:1111/config-api/"]
       volumes:
        - /home/developer/docker-logs/:/app/log

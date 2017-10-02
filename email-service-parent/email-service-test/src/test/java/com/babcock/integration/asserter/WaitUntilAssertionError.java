@@ -1,4 +1,4 @@
-package com.babcock.test.helper.asserter;
+package com.babcock.integration.asserter;
 
 public class WaitUntilAssertionError extends RuntimeException {
 

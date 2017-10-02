@@ -1,4 +1,4 @@
-package com.babcock.test.helper.asserter;
+package com.babcock.integration.asserter;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
