@@ -11,7 +11,7 @@ node {
     stage('Build') {
 
         try {
-            sh "mvn -B -V -U -e -f " + pomLocation + "/pom.xml clean install"
+            sh "mvn -B -V -U -e -f " + pomLocation + "/pom.xml clean install -Prun-clean-env-build"
         } finally {
             junit targetLocation + '/surefire-reports/*.xml'
             //junit testTargetLocation + '/failsafe-reports/*.xml'
