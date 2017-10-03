@@ -15,16 +15,7 @@ public class TestConfiguration {
 
     @Bean
     public RestTemplate restTemplate() {
-        RestTemplate restTemplate = new RestTemplate();
-        //restTemplate.setMessageConverters(getMessageConverters());
-        return restTemplate;
+        return new RestTemplate();
     }
-
-    private List<HttpMessageConverter<?>> getMessageConverters() {
-        List<HttpMessageConverter<?>> converters = new ArrayList<>();
-        converters.add(new MappingJackson2HttpMessageConverter());
-        return converters;
-    }
-
 
 }

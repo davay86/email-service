@@ -36,10 +36,6 @@ public class WaitForHelper {
             serviceUnavailable = true;
             fail("email-service docker environment unavailable");
         }
-
-        WaitForService waitForRabbitMQ= new WaitForService("http://localhost:15672", restTemplate);
-        waitForRabbitMQ.setMaxWaitTime(720000);
-        waitForRabbitMQ.performAssertion();
     }
 
     public void waitForMailMessages() throws InterruptedException {
