@@ -9,6 +9,6 @@ public interface MessageChannels {
     String PUBLISH_CREATE_USER_CHANNEL = "publishCreateUserChannel";
 
     @Output("publishCreateUserChannel")
-    MessageChannel createUserChannel();
+    MessageChannel publishCreateUserChannel();
 
 }

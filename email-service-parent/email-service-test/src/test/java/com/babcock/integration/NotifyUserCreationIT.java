@@ -2,16 +2,12 @@ package com.babcock.integration;
 
 import com.babcock.integration.application.TestApplication;
 import com.babcock.integration.asserter.WaitForHelper;
-import com.babcock.integration.asserter.WaitForMail;
-import com.babcock.integration.asserter.WaitForService;
-import com.babcock.integration.asserter.WaitUntilAssertionError;
 import com.babcock.integration.stream.MessageChannels;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.cloud.stream.annotation.EnableBinding;
 import org.springframework.http.ResponseEntity;
@@ -52,7 +48,7 @@ public class NotifyUserCreationIT {
     public void notifyUserCreationReceiver_receives_userPayload_asExpected() throws MessagingException, IOException, InterruptedException {
         String uniqueStr = getUniqueString();
 
-        messageChannels.createUserChannel().send(createMessage(getExamplePayload(uniqueStr)));
+        messageChannels.publishCreateUserChannel().send(createMessage(getExamplePayload(uniqueStr)));
 
         waitForHelper.waitForMailMessages();
 
