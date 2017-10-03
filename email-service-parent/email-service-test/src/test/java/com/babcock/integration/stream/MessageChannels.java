@@ -6,9 +6,9 @@ import org.springframework.stereotype.Component;
 
 public interface MessageChannels {
 
-    String CREATE_USER_CHANNEL = "createUserChannel";
+    String PUBLISH_CREATE_USER_CHANNEL = "publishCreateUserChannel";
 
-    @Output("createUserChannel")
+    @Output("publishCreateUserChannel")
     MessageChannel createUserChannel();
 
 }
