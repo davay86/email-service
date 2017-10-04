@@ -1,5 +1,8 @@
 package com.babcock.email.stream.listener;
 
+import com.babcock.email.Application;
+import com.babcock.email.application.TestApplication;
+import com.babcock.email.configuration.ConfigurationForTest;
 import com.babcock.email.stream.channel.MessageChannels;
 import org.junit.After;
 import org.junit.Before;
@@ -8,6 +11,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.annotation.Import;
 import org.springframework.messaging.Message;
 import org.springframework.messaging.support.GenericMessage;
 import org.springframework.test.context.ActiveProfiles;
@@ -15,7 +19,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.subethamail.wiser.Wiser;
 
 import javax.mail.MessagingException;
-import javax.mail.internet.MimeMessage;
 
 import java.io.IOException;
 
@@ -23,7 +26,7 @@ import static org.junit.Assert.assertEquals;
 
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@SpringBootTest(classes = TestApplication.class)
 @ActiveProfiles("test")
 public class NotifyUserCreationListenerTest {
 

@@ -1,0 +1,28 @@
+info:
+  app:
+    name: email-service
+    description: email-service
+    version: 1.0.0
+
+server:
+  port: 2222
+  context-path: /email-service
+
+spring:
+  application:
+    name: email-service
+  profiles:
+    active: test
+
+
+---
+
+spring:
+    profiles: test
+    cloud:
+      config:
+        uri: http://dummy-config-url/
+logging:
+  config: classpath:logback.xml
+
+---

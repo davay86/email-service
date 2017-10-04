@@ -7,9 +7,6 @@ See here for more details: http://gordondickens.com/wordpress/2013/03/27/sawing-
         <resetJUL>true</resetJUL>
     </contextListener>
 
-    <!-- To enable JMX Management -->
-    <jmxConfigurator/>
-
     <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
             <pattern>[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} %logger : %msg%n</pattern>
@@ -23,6 +20,11 @@ See here for more details: http://gordondickens.com/wordpress/2013/03/27/sawing-
     <logger name="org.thymeleaf" level="error"/>
     <logger name="com.netflix" level="error"/>
     <logger name="springfox" level="error"/>
+
+    <logger name="org.subethamail.smtp.server" level="error"/>
+
+    <logger name="com.babcock.email.service.EmailService" level="debug"/>
+    <logger name="com.babcock.email.stream.listener.NotifyUserCreationListener" level="debug"/>
 
     <root level="info">
         <appender-ref ref="console"/>

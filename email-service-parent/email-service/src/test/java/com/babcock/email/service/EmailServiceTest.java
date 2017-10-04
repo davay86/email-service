@@ -1,5 +1,7 @@
 package com.babcock.email.service;
 
+import com.babcock.email.application.TestApplication;
+import com.babcock.email.configuration.ConfigurationForTest;
 import com.babcock.email.stream.payload.User;
 import org.junit.After;
 import org.junit.Before;
@@ -8,6 +10,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.annotation.Import;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.subethamail.wiser.Wiser;
@@ -21,7 +24,7 @@ import java.util.List;
 import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@SpringBootTest(classes = TestApplication.class)
 @ActiveProfiles("test")
 public class EmailServiceTest {
 

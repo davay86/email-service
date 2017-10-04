@@ -7,14 +7,11 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
+import javax.annotation.PostConstruct;
+
 @Configuration
 @EnableCircuitBreaker
 @ComponentScan("com.babcock.email")
-@Import({SecurityConfiguration.class,})
+@Import({SecurityConfiguration.class})
 public class CloudConfiguration {
-
-    @Bean
-    public Jackson2JsonMessageConverter converter() {
-        return new Jackson2JsonMessageConverter();
-    }
 }
