@@ -14,7 +14,6 @@ import static org.springframework.context.annotation.FilterType.REGEX;
 
 @TestConfiguration
 @Profile("test")
-//@ComponentScan("com.babcock.email")
 @ComponentScan(
         basePackages="com.babcock.email",
         excludeFilters = {@ComponentScan.Filter(type = ASSIGNABLE_TYPE, value = {
