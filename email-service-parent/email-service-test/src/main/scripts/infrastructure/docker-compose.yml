@@ -56,7 +56,7 @@ services:
       networks:
         - microservices
       environment:
-        - SERVER_PORT=1114
+        - SERVER_PORT=1113
         - SPRING_PROFILES_ACTIVE=test
       ports:
         - "1113:1113"
