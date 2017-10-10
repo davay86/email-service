@@ -28,7 +28,6 @@
 	<scm>
 		<developerConnection>scm:git:https://github.com/BabcockEMTDevelopment/email-service.git</developerConnection>
 		<connection>scm:git:https://github.com/BabcockEMTDevelopment/email-service.git</connection>
-		<tag>HEAD</tag>
 	</scm>
 
 	<build>
