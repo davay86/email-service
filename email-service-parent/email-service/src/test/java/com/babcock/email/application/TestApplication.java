@@ -1,8 +1,5 @@
 package com.babcock.email.application;
 
-import com.babcock.email.Application;
-import com.babcock.email.config.CloudConfiguration;
-import com.babcock.email.config.SecurityConfiguration;
 import com.babcock.email.configuration.ConfigurationForTest;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
