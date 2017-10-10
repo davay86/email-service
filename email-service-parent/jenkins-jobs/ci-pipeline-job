@@ -7,7 +7,14 @@ node {
     echo "branch: "+branchName
 
     stage('Checkout') {
-        checkout scm
+        //checkout scm
+
+        checkout([
+                $class: 'GitSCM',
+                branches: scm.branches,
+                extensions: scm.extensions + [[$class: 'CleanCheckout'], [$class: 'LocalBranch', localBranch: 'new']],
+                userRemoteConfigs: scm.userRemoteConfigs
+        ])
     }
 
     if(branchName == 'master') {
