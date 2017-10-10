@@ -1,15 +1,16 @@
 def pomLocation = "email-service-parent"
 def targetLocation = "email-service-parent/email-service/target"
 def testTargetLocation = "email-service-parent/email-service-test/target"
+def branchName = env.BRANCH_NAME
 
 node {
-    echo "branch: ${env.BRANCH_NAME}"
+    echo "branch: "+branchName
 
     stage('Checkout') {
         checkout scm
     }
 
-    if(${env.BRANCH_NAME} == 'master') {
+    if(branchName == 'master') {
         stage('Build and Release') {
 
             def pom = readMavenPom file: pomLocation + '/pom.xml'
