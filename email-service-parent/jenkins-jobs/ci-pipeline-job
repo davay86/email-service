@@ -9,6 +9,7 @@ node {
     }
 
     stage('Build') {
+        echo "branch: ${env.BRANCH_NAME}"
 
         try {
             sh "mvn -B -V -U -e -f " + pomLocation + "/pom.xml clean install -Prun-clean-env-build"
