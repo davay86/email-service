@@ -9,6 +9,8 @@ node {
     }
 
     stage('Build and Release') {
+        echo "branch: ${env.BRANCH_NAME}"
+
         def pom = readMavenPom file: pomLocation + '/pom.xml'
         def version = pom.version
         def releaseVersion = version.minus("-SNAPSHOT")
