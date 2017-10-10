@@ -22,7 +22,7 @@ public class WaitForHelper {
 
     public void waitForServices() throws InterruptedException {
         WaitForService waitForEmailService = new WaitForService(baseUrl + "/info", restTemplate);
-        waitForEmailService.setMaxWaitTime(720000);
+        waitForEmailService.setMaxWaitTime(300000);
 
         if(serviceUnavailable) {
             fail("email-service docker environment unavailable");
