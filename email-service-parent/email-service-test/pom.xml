@@ -14,8 +14,6 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <cucumber.version>1.2.2</cucumber.version>
-        <cucumber.report.name>Email Service</cucumber.report.name>
 
         <skip.acceptance.tests>true</skip.acceptance.tests>
 
@@ -196,27 +194,6 @@
                             <goal>integration-test</goal>
                             <goal>verify</goal>
                         </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>net.masterthought</groupId>
-                <artifactId>maven-cucumber-reporting</artifactId>
-                <version>3.7.0</version>
-                <executions>
-                    <execution>
-                        <id>execution</id>
-                        <phase>post-integration-test</phase>
-                        <goals>
-                            <goal>generate</goal>
-                        </goals>
-                        <configuration>
-                            <projectName>${cucumber.report.name}</projectName>
-                            <outputDirectory>${project.build.directory}/cucumber-report/cucumber-html-reports
-                            </outputDirectory>
-                            <cucumberOutput>${project.build.directory}/cucumber-report/result.json</cucumberOutput>
-                            <parallelTesting>false</parallelTesting>
-                        </configuration>
                     </execution>
                 </executions>
             </plugin>
