@@ -71,6 +71,7 @@ services:
       expose:
         - "1113"
   #http://localhost:1113/hystrix
+  #http://localhost:8989/turbine.stream
 
 networks:
   microservices:
