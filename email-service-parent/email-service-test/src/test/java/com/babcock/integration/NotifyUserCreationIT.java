@@ -44,7 +44,7 @@ public class NotifyUserCreationIT {
     }
 
     @Test
-    public void notifyUserCreationReceiver_receives_userPayload_asExpected() throws MessagingException, IOException, InterruptedException {
+    public void messageReceivedOn_notifyUserCreationChannel_sendsEmail_asExpected() throws MessagingException, IOException, InterruptedException {
         String uniqueStr = getUniqueString();
 
         messageChannels.publishCreateUserChannel().send(createMessage(getExamplePayload(uniqueStr)));
