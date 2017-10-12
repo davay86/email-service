@@ -14,6 +14,7 @@ services:
         expose:
           - "1025"
           - "8025"
+  #http://localhost:8025
 
   email-service:
       image: sleepingtalent/email-service:snapshot
@@ -29,6 +30,7 @@ services:
        - /home/developer/docker-logs/:/app/log
       expose:
        - "2222"
+  #http://localhost:2222/email-service/info
 
 networks:
   default:
