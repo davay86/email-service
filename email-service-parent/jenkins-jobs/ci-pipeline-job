@@ -34,8 +34,8 @@ node {
         }
 
         stage('Release to QA'){
-            //sh "kubectl config --kubeconfig=/etc/.kube/config use-context aws_QA"
-            //sh "kubectl replace --kubeconfig=/etc/.kube/config  -f email-service-parent/email-service/kubernetes/email-service-qa-deployment.yml --record"
+            //sh "kubectl config use-context aws_QA"
+            //sh "kubectl apply -f email-service-parent/email-service/kubernetes/email-service-qa-deployment.yml --record"
         }
     } else {
         stage('Build') {
