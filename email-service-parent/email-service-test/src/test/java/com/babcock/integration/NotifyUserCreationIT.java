@@ -8,6 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.cloud.stream.annotation.EnableBinding;
 import org.springframework.http.ResponseEntity;
@@ -38,6 +39,9 @@ public class NotifyUserCreationIT {
     @Autowired
     private WaitForHelper waitForHelper;
 
+    @Value("${mail.server.url}")
+    String mailServerUrl;
+
     @Before
     public void before() throws InterruptedException {
         waitForHelper.waitForServices();
@@ -51,7 +55,7 @@ public class NotifyUserCreationIT {
 
         waitForHelper.waitForMailMessages();
 
-        ResponseEntity<String> response = restTemplate.getForEntity("http://localhost:8025/api/v1/messages", String.class);
+        ResponseEntity<String> response = restTemplate.getForEntity(mailServerUrl+"/api/v1/messages", String.class);
 
         assertThat(response.getBody(), containsString("To: admin@test.com"));
         assertThat(response.getBody(), containsString("Subject: New User Awaiting Activation"));
