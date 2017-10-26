@@ -45,6 +45,7 @@ public class NotifyUserCreationIT {
     @Before
     public void before() throws InterruptedException {
         waitForHelper.waitForServices();
+        restTemplate.delete(mailServerUrl+"/api/v1/messages", String.class);
     }
 
     @Test
