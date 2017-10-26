@@ -23,7 +23,7 @@ public class NotifyUserCreationListener {
     @HystrixCommand
     @StreamListener(MessageChannels.NOTIFY_USER_CREATION_CHANNEL)
     public void notifyUserCreationReceiver(User userPayload) {
-        logger.debug("UserPayload Received : "+ userPayload);
+        logger.info("UserPayload Received : "+ userPayload);
         emailService.sendUserCreationEmail(userPayload);
     }
 }

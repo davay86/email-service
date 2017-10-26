@@ -39,7 +39,7 @@ public class EmailService {
     }
 
     private void sendSimpleMessage(String to, String subject, String text) {
-        logger.debug("Sending Email\n to: {}\n subject: {}\n body: {}",to,subject,text);
+        logger.info("Sending Email\n to: {}\n subject: {}\n body: {}",to,subject,text);
 
         SimpleMailMessage message = new SimpleMailMessage();
         message.setTo(to);
