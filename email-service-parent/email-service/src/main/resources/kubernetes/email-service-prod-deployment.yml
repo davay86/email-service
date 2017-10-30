@@ -13,6 +13,20 @@ spec:
             containers:
             - name: email-service
               image: sleepingtalent/email-service:@docker.release.version@
+              readinessProbe:
+                httpGet:
+                  path: /email-service/health
+                  port: 2222
+                initialDelaySeconds: 120
+                timeoutSeconds: 60
+                periodSeconds: 15
+              livenessProbe:
+                httpGet:
+                  path: /email-service/health
+                  port: 2222
+                initialDelaySeconds: 120
+                timeoutSeconds: 60
+                periodSeconds: 15
               env:
               - name: CONFIG_URL
                 value: http://config-api-gateway:1111/config-api/
