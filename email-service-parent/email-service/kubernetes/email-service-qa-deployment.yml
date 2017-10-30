@@ -12,7 +12,7 @@ spec:
         spec:
             containers:
             - name: email-service
-              image: sleepingtalent/email-service:1.0.17-RC
+              image: sleepingtalent/email-service:1.0.17-SNAPSHOT-RC
               readinessProbe:
                 httpGet:
                   path: /email-service/info
