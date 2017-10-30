@@ -12,7 +12,21 @@ spec:
         spec:
             containers:
             - name: email-service
-              image: sleepingtalent/email-service:1.0.16
+              image: sleepingtalent/email-service:1.0.17
+              readinessProbe:
+                httpGet:
+                  path: /email-service/info
+                  port: 2222
+                initialDelaySeconds: 120
+                timeoutSeconds: 60
+                periodSeconds: 15
+              livenessProbe:
+                httpGet:
+                  path: /email-service/info
+                  port: 2222
+                initialDelaySeconds: 120
+                timeoutSeconds: 60
+                periodSeconds: 15
               env:
               - name: CONFIG_URL
                 value: http://config-api-gateway:1111/config-api/
