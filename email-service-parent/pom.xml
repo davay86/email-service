@@ -9,7 +9,7 @@
 
 	<groupId>com.babcock.email</groupId>
 	<artifactId>email-service-parent</artifactId>
-	<version>1.0.21-SNAPSHOT</version>
+	<version>1.0.21</version>
 
 	<packaging>pom</packaging>
 
@@ -28,7 +28,7 @@
 	<scm>
 		<developerConnection>scm:git:https://github.com/BabcockEMTDevelopment/email-service.git</developerConnection>
 		<connection>scm:git:https://github.com/BabcockEMTDevelopment/email-service.git</connection>
-	  <tag>HEAD</tag>
+	  <tag>1.0.21-RC</tag>
   </scm>
 
 	<build>
