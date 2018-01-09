@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-docker rmi -f sleepingtalent/email-service:snapshot
+docker rmi -f emtdevelopment/email-service:snapshot
