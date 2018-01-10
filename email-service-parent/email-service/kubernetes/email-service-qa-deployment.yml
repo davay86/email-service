@@ -12,7 +12,7 @@ spec:
         spec:
             containers:
             - name: email-service
-              image: emtdevelopment/email-service:1.0.26-RC
+              image: emtdevelopment/email-service:1.0.27-RC
               readinessProbe:
                 httpGet:
                   path: /email-service/health
