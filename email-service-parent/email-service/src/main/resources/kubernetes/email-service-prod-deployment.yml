@@ -12,7 +12,7 @@ spec:
         spec:
             containers:
             - name: email-service
-              image: sleepingtalent/email-service:@docker.release.version@
+              image: emtdevelopment/email-service:@docker.release.version@
               readinessProbe:
                 httpGet:
                   path: /email-service/health

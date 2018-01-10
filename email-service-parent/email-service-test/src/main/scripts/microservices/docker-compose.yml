@@ -17,7 +17,7 @@ services:
   #http://localhost:8025
 
   email-service:
-      image: sleepingtalent/email-service:snapshot
+      image: emtdevelopment/email-service:snapshot
       environment:
       - SERVER_PORT=2222
       - SPRING_PROFILES_ACTIVE=test

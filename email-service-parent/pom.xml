@@ -9,7 +9,7 @@
 
 	<groupId>com.babcock.email</groupId>
 	<artifactId>email-service-parent</artifactId>
-	<version>1.0.26-SNAPSHOT</version>
+	<version>1.0.27-SNAPSHOT</version>
 
 	<packaging>pom</packaging>
 
