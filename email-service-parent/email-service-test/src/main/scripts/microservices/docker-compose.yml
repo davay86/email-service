@@ -25,7 +25,7 @@ services:
       - "2222:2222"
       depends_on:
       - test-smtp-server
-      command: ["dockerize", "-wait", "http://config-api:1111/config-api/email-service/test", "-wait", "http://test-smtp-server:8025", "-wait", "tcp://rabbitmq-proxy:5672","-timeout", "380s", "--", "/bin/sh", "-c", "java -jar app.jar --server.port=2222 --spring.profiles.active=test --spring.cloud.config.uri=http://config-api:1111/config-api/"]
+      command: ["dockerize", "-wait", "http://admin:password@config-api:1111/config-api/email-service/test", "-wait", "http://test-smtp-server:8025", "-wait", "tcp://rabbitmq-proxy:5672","-timeout", "380s", "--", "/bin/sh", "-c", "java -jar app.jar --server.port=2222 --spring.profiles.active=test --spring.cloud.config.uri=http://config-api:1111/config-api/"]
       volumes:
        - /home/developer/docker-logs/:/app/log
       expose:
